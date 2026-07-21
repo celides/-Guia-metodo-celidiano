@@ -1,139 +1,495 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiencia de Metapareidolia | Método Celidiano</title>
-    <!-- Tailwind CSS para un diseño limpio y profesional -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Experiencia Metapareidolia — Método Celidiano</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #c5a059;
+    --gold-light: #e2c27d;
+    --gold-dark: #9a7a3a;
+    --black: #050505;
+    --dark: #0e0e0e;
+    --platinum: #b8b8b8;
+    --white: #f0ece4;
+    --glass-bg: rgba(255,255,255,0.03);
+    --glass-border: rgba(197,160,89,0.2);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--black);
+    background-image: url('https://www.transparenttextures.com/patterns/black-marble.png');
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .gold-bar { height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 32px; }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 56px 24px 40px;
+  }
+
+  .hero-logo {
+    width: 90px; height: auto;
+    display: block; margin: 0 auto 24px;
+    filter: drop-shadow(0 0 16px rgba(197,160,89,0.4));
+  }
+
+  .logo-fallback {
+    width: 80px; height: 80px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: none;
+    align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: var(--gold);
+    margin: 0 auto 24px;
+  }
+
+  .eyebrow {
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 6px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 7vw, 3.8rem);
+    font-weight: 700; letter-spacing: 5px;
+    color: var(--white); line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  h1 span { color: var(--gold); }
+
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
+    color: var(--gold-light); letter-spacing: 3px;
+    font-style: italic; margin-bottom: 24px;
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-style: italic; color: var(--platinum);
+    max-width: 540px; margin: 0 auto 40px;
+    line-height: 1.7; padding: 0 20px;
+  }
+
+  .tagline strong { color: var(--gold-light); font-style: normal; }
+
+  /* VIDEO */
+  .video-section { max-width: 680px; margin: 0 auto 64px; padding: 0 20px; }
+  .section-label {
+    font-size: 9px; font-weight: 500; letter-spacing: 5px;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 24px; text-align: center;
+  }
+  .video-frame {
+    border: 1px solid var(--glass-border); border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(197,160,89,0.1), 0 0 120px rgba(0,0,0,0.8);
+  }
+  .video-frame iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+
+  /* STEPS */
+  .steps-section { max-width: 680px; margin: 0 auto 72px; padding: 0 20px; }
+
+  .step-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 36px 28px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .step-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 700;
+    color: rgba(197,160,89,0.12);
+    position: absolute; top: 12px; right: 20px;
+    line-height: 1;
+  }
+
+  .step-badge {
+    display: inline-block;
+    font-size: 8px; font-weight: 500;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--black); padding: 4px 14px;
+    border-radius: 2px; margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 400;
+    color: var(--white); margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .step-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--platinum); line-height: 1.9;
+  }
+
+  .step-body p { margin-bottom: 12px; }
+  .step-body p:last-child { margin-bottom: 0; }
+
+  .step-body strong { color: var(--gold-light); font-weight: 600; }
+
+  .step-highlight {
+    background: rgba(197,160,89,0.06);
+    border-left: 2px solid var(--gold);
+    border-radius: 0 3px 3px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--white);
+    line-height: 1.7;
+  }
+
+  .step-list { list-style: none; margin: 12px 0; }
+  .step-list li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: var(--platinum);
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(197,160,89,0.08);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .step-list li::before {
+    content: '◆'; color: var(--gold);
+    font-size: 7px; margin-top: 6px; flex-shrink: 0;
+  }
+
+  /* CTA WHATSAPP */
+  .cta-section { text-align: center; padding: 0 20px 72px; }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
+    background-size: 200% 200%;
+    animation: goldShimmer 4s ease infinite;
+    color: var(--black);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 3px; text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 36px;
+    border-radius: 3px;
+    box-shadow: 0 4px 24px rgba(197,160,89,0.35);
+    transition: all 0.3s;
+    margin-bottom: 16px;
+  }
+
+  .btn-whatsapp:hover {
+    box-shadow: 0 8px 40px rgba(197,160,89,0.55);
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+  }
+
+  @keyframes goldShimmer {
+    0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}
+  }
+
+  .cta-note {
+    font-size: 0.72rem; letter-spacing: 2px;
+    color: var(--platinum); opacity: 0.6;
+    text-transform: uppercase;
+  }
+
+  /* VIDEO INSTRUCCIONES */
+  .instrucciones-section { max-width: 680px; margin: 0 auto 72px; padding: 0 20px; }
+
+  /* GALERIAS */
+  .galerias-section { max-width: 680px; margin: 0 auto 80px; padding: 0 20px; }
+
+  .galeria-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    text-decoration: none;
+    transition: all 0.3s;
+    backdrop-filter: blur(8px);
+  }
+
+  .galeria-card:hover {
+    border-color: var(--gold);
+    background: rgba(197,160,89,0.05);
+    transform: translateX(4px);
+  }
+
+  .galeria-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; color: var(--white);
+    font-style: italic;
+  }
+
+  .galeria-arrow { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
+
+  .galeria-note {
+    font-size: 0.72rem; letter-spacing: 2px;
+    color: var(--platinum); opacity: 0.5;
+    text-transform: uppercase; margin-top: 8px;
+    text-align: center;
+  }
+
+  /* PORTAL OBRA */
+  .portal-section { max-width: 680px; margin: 0 auto 72px; padding: 0 20px; text-align: center; }
+
+  .btn-portal {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--platinum);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 3px; text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px; border-radius: 3px;
+    transition: all 0.3s;
+  }
+
+  .btn-portal:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    background: rgba(197,160,89,0.05);
+  }
+
+  /* CONFIDENCIALIDAD */
+  .confidential-section {
+    max-width: 680px; margin: 0 auto 64px; padding: 0 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px; padding: 28px 24px;
+  }
+
+  .confidential-section p {
+    font-size: 0.75rem; letter-spacing: 1px;
+    color: var(--platinum); opacity: 0.6;
+    line-height: 1.8; text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .confidential-section p:last-child { margin-bottom: 0; }
+
+  /* TEAM */
+  .team-section { max-width: 680px; margin: 0 auto 48px; padding: 0 20px; display: flex; flex-direction: column; gap: 12px; }
+  .team-item { text-align: center; }
+  .team-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--gold-light); margin-bottom: 3px; }
+  .team-role { font-size: 0.7rem; letter-spacing: 2px; color: var(--platinum); text-transform: uppercase; opacity: 0.7; }
+
+  footer {
+    text-align: center; padding: 32px 24px;
+    font-size: 0.68rem; letter-spacing: 2px;
+    color: var(--platinum); opacity: 0.3;
+  }
+
+  @media (max-width: 480px) {
+    .step-card { padding: 28px 20px; }
+  }
+</style>
 </head>
-<body class="bg-slate-900 text-slate-100 antialiased selection:bg-teal-500 selection:text-white">
+<body>
 
-    <!-- Header / Hero Section -->
-    <header class="relative overflow-hidden py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-teal-500/10 text-teal-400 text-xs font-semibold tracking-wider uppercase mb-4 border border-teal-500/20">
-                Método Celidiano
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
-                La Ciencia de la Proyección
-            </h1>
-            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-light">
-                Decodifica tu subconsciente a través del arte y la arteterapia lúdica. Sigue los pasos a continuación para iniciar tu sesión.
-            </p>
-        </div>
-    </header>
+<div class="gold-bar"></div>
 
-    <!-- Main Content Flow -->
-    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+<!-- HEADER -->
+<header>
+  <img
+    class="hero-logo"
+    src="https://drive.google.com/thumbnail?id=1RaBgCVJ-c3uqSQdTxHxyVgrFWmiRSET4&sz=w400"
+    alt="Método Celidiano"
+    onerror="this.style.display='none'; document.getElementById('logo-fb').style.display='flex';"
+  />
+  <div class="logo-fallback" id="logo-fb">CD</div>
 
-        <!-- Paso 1: Identidad y Contexto (WhatsApp) -->
-        <section class="bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700/60 shadow-lg relative">
-            <div class="absolute -top-4 left-6 bg-teal-500 text-slate-950 font-bold px-3 py-1 rounded-full text-sm">
-                Paso 1
-            </div>
-            <h2 class="text-xl sm:text-2xl font-semibold text-white mb-4 mt-2">
-                Inicio de tu Análisis Identitario
-            </h2>
-            <p class="text-slate-300 text-sm sm:text-base mb-6">
-                Para comenzar tu sesión, envíanos un mensaje a nuestro WhatsApp con los siguientes datos. Estos elementos son fundamentales para nuestro análisis:
-            </p>
-            
-            <div class="space-y-4 mb-8">
-                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/40">
-                    <h3 class="font-semibold text-teal-400 text-sm sm:text-base mb-1">Nombre Completo (Nombre de pila y apellidos)</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm">
-                        Trabajamos bajo la <strong>Antroponimia</strong>, la ciencia que estudia el origen, significado y carga histórica de los nombres y apellidos. Entender tu identidad nos permite identificar patrones culturales y ancestrales que se proyectan en tu subconsciente.
-                    </p>
-                </div>
+  <p class="eyebrow">Arte · Neurociencia · Transformación</p>
+  <h1>MÉTODO<br/><span>CELIDIANO</span></h1>
+  <p class="subtitle">La Experiencia de Metapareidolia</p>
+  <div class="divider"></div>
+  <p class="tagline">
+    <strong>"El inconsciente no sabe mentir."</strong><br/>
+    La ciencia de la proyección: decodifica tu subconsciente a través del arte.
+  </p>
+</header>
 
-                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/40">
-                    <h3 class="font-semibold text-teal-400 text-sm sm:text-base mb-1">Fecha de Nacimiento</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm">
-                        Utilizamos los principios de la <strong>Ciencia de las Generaciones</strong>. Tu fecha nos ubica en un marco de referencia histórico y arquetípico, permitiéndonos comprender cómo tu experiencia de vida se refleja en la observación artística.
-                    </p>
-                </div>
-            </div>
+<!-- VIDEO COMERCIAL -->
+<div class="video-section">
+  <div class="section-label">El Método</div>
+  <div class="video-frame">
+    <iframe
+      src="https://www.youtube.com/embed/yIbF3kCyGvg?rel=0&modestbranding=1&playsinline=1"
+      title="Método Celidiano — El Inconsciente No Sabe Mentir"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
-            <!-- Botón de WhatsApp -->
-            <div class="text-center">
-                <a href="https://wa.me/524494008788?text=Hola,%20he%20pagado%20mi%20sesion%20de%20Arteterapia.%20Mis%20datos%20son:%0ANombre:%20%0AFecha%20de%20nacimiento:" 
-                   target="_blank"
-                   class="inline-flex items-center justify-center w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-3 px-8 rounded-xl transition duration-200 shadow-md">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                    Enviar Datos por WhatsApp
-                </a>
-            </div>
-        </section>
+<!-- PASOS -->
+<div class="steps-section">
+  <div class="section-label">Tu Protocolo de Sesión</div>
 
-        <!-- Paso 2: La Experiencia de Observación -->
-        <section class="bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700/60 shadow-lg relative">
-            <div class="absolute -top-4 left-6 bg-teal-500 text-slate-950 font-bold px-3 py-1 rounded-full text-sm">
-                Paso 2
-            </div>
-            <h2 class="text-xl sm:text-2xl font-semibold text-white mb-4 mt-2">
-                Inmersión Visual y Observación
-            </h2>
-            <ul class="space-y-3 text-slate-300 text-sm sm:text-base mb-6">
-                <li class="flex items-start">
-                    <span class="text-teal-400 mr-2 font-bold">•</span>
-                    <div><strong>Ambiente Sagrado:</strong> Busca un espacio privado y en total silencio. Evita que terceros interfieran para no contaminar tu percepción original.</div>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-teal-400 mr-2 font-bold">•</span>
-                    <div><strong>Hardware:</strong> Utiliza un monitor o pantalla grande. La escala permite que tu subconsciente proyecte con mayor libertad. Puedes poner música relajante.</div>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-teal-400 mr-2 font-bold">•</span>
-                    <div><strong>Dinámica:</strong> Observa las pinturas durante 10 a 15 minutos. Identifica al menos <strong>25 elementos</strong> (historias, figuras, objetos, emociones). Escríbelos conforme los detectes y mándalos al mismo WhatsApp.</div>
-                </li>
-            </ul>
+  <!-- PASO 1 -->
+  <div class="step-card">
+    <div class="step-number">01</div>
+    <span class="step-badge">Primer Paso</span>
+    <h2 class="step-title">Prepara tu Espacio e Inicia el Contacto</h2>
+    <div class="step-body">
+      <p>Busca un espacio privado, en total silencio. La pureza de tu percepción es la clave. Evita que terceros estén presentes — pueden contaminar tu proyección original.</p>
+      <p>Para una inmersión total, utiliza un monitor o pantalla grande. La escala permite que tu subconsciente proyecte con mayor libertad y profundidad.</p>
+      <div class="step-highlight">
+        Cuando estés en tu espacio y listo, abre WhatsApp y escribe tu <strong>nombre completo</strong> — nombre de pila y apellidos — como primera línea de tu mensaje.
+      </div>
+      <p>Trabajamos bajo la <strong>Antroponimia</strong> — la ciencia que estudia el origen, significado y carga histórica de los nombres y apellidos. Tu identidad nos permite identificar patrones culturales y ancestrales que se proyectan en tu subconsciente.</p>
+      <p>A continuación, escribe tu <strong>fecha de nacimiento completa</strong>. Utilizamos los principios de la <strong>Ciencia de las Generaciones</strong> — tu fecha nos ubica en un marco de referencia histórico y arquetípico que permite comprender con mayor precisión cómo tu experiencia de vida se refleja en la observación artística.</p>
+    </div>
+  </div>
 
-            <!-- Link a la Galería -->
-            <div class="text-center">
-                <a href="https://tu-repositorio-o-galeria.com" 
-                   target="_blank"
-                   class="inline-flex items-center justify-center w-full sm:w-auto bg-teal-600 hover:bg-teal-500 text-slate-950 font-semibold py-3 px-8 rounded-xl transition duration-200 shadow-md">
-                    Ir a la Galería de Pinturas
-                </a>
-            </div>
-        </section>
+  <!-- PASO 2 -->
+  <div class="step-card">
+    <div class="step-number">02</div>
+    <span class="step-badge">Segundo Paso</span>
+    <h2 class="step-title">Inmersión Visual en las Colecciones</h2>
+    <div class="step-body">
+      <p>Accede a las colecciones de pinturas que encontrarás al final de esta página. Observa cada obra con calma y atención plena durante <strong>10 a 15 minutos en total</strong>.</p>
+      <div class="step-highlight">
+        Identifica al menos <strong>25 elementos</strong> — historias, figuras, objetos, emociones, sensaciones. Escríbelos conforme los vayas detectando, en el orden en que aparezcan.
+      </div>
+      <ul class="step-list">
+        <li>No analices ni filtres — escribe lo primero que tu mente perciba</li>
+        <li>Pueden ser figuras, paisajes, emociones, recuerdos o sensaciones</li>
+        <li>Si usas dictado por voz, verifica que el sistema transcriba correctamente</li>
+        <li>No hay respuestas correctas ni incorrectas — solo tu proyección</li>
+      </ul>
+      <p>Cuando tengas tu lista completa, envíala al mismo chat de WhatsApp donde escribiste tu nombre y fecha de nacimiento.</p>
+    </div>
+  </div>
 
-        <!-- Paso 3: Análisis y Videoconferencia -->
-        <section class="bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700/60 shadow-lg relative">
-            <div class="absolute -top-4 left-6 bg-teal-500 text-slate-950 font-bold px-3 py-1 rounded-full text-sm">
-                Paso 3
-            </div>
-            <h2 class="text-xl sm:text-2xl font-semibold text-white mb-4 mt-2">
-                Decodificación y Videoconferencia
-            </h2>
-            <p class="text-slate-300 text-sm sm:text-base mb-6">
-                Una vez que envíes tu lista de observaciones, Adriana procesará el análisis en un tiempo estimado de <strong>30 minutos</strong>. Te notificaremos por WhatsApp cuando esté listo para iniciar la sesión por Google Meet.
-            </p>
+  <!-- PASO 3 -->
+  <div class="step-card">
+    <div class="step-number">03</div>
+    <span class="step-badge">Tercer Paso</span>
+    <h2 class="step-title">Decodificación y Videoconferencia</h2>
+    <div class="step-body">
+      <p>Una vez recibida tu lista, Adriana procesará el análisis en un tiempo estimado de <strong>30 minutos</strong>.</p>
+      <p>Cuando el análisis esté listo, te notificaremos por WhatsApp para iniciar la videoconferencia. La sesión se realiza <strong>cara a cara, con cámara abierta</strong> — ser visto es parte de la experiencia de sanación.</p>
+      <div class="step-highlight">
+        Enlace permanente de sesión:<br/>
+        <strong>meet.google.com/bxm-pgte-eyr</strong>
+      </div>
+      <p>Este es un espacio seguro, profesional y completamente confidencial. Tu presencia y apertura son todo lo que necesitas.</p>
+    </div>
+  </div>
 
-            <!-- Link de Google Meet -->
-            <div class="text-center">
-                <a href="https://meet.google.com/tu-enlace-permanente" 
-                   target="_blank"
-                   class="inline-flex items-center justify-center w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 px-8 rounded-xl transition duration-200 shadow-md">
-                    Unirse a la Sesión de Google Meet
-                </a>
-            </div>
-        </section>
+</div>
 
-    </main>
+<!-- CTA WHATSAPP -->
+<div class="cta-section">
+  <a
+    href="https://wa.me/524494008788?text=Hola%20Adriana%2C%20estoy%20listo%20para%20iniciar%20mi%20sesi%C3%B3n%20del%20M%C3%A9todo%20Celidiano."
+    class="btn-whatsapp"
+    target="_blank">
+    ✦ Iniciar mi sesión en WhatsApp
+  </a>
+  <br/>
+  <p class="cta-note">Toca para abrir el chat directamente con Adriana</p>
+</div>
 
-    <!-- Footer / Aviso de Privacidad -->
-    <footer class="border-t border-slate-800 mt-20 py-8 px-4 text-center text-slate-500 text-xs sm:text-sm">
-        <div class="max-w-3xl mx-auto space-y-2">
-            <p><strong>Aviso de Privacidad:</strong> El Método Celidiano es una herramienta de arteterapia lúdica y de introspección. La información proporcionada es tratada bajo estrictos protocolos de confidencialidad y ética profesional.</p>
-            <p class="text-slate-600">Esta sesión tiene un enfoque preventivo, lúdico y educativo; no sustituye tratamientos psicológicos o psiquiátricos clínicos.</p>
-        </div>
-    </footer>
+<!-- VIDEO INSTRUCCIONES -->
+<div class="instrucciones-section">
+  <div class="section-label">Video de Instrucciones</div>
+  <div class="video-frame">
+    <iframe
+      src="https://www.youtube.com/embed/m4D9ypuLJfQ?rel=0&modestbranding=1&playsinline=1"
+      title="Instrucciones — Método Celidiano"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<!-- COLECCIONES -->
+<div class="galerias-section">
+  <div class="section-label">Las Colecciones · Observa las Obras</div>
+
+  <a href="https://flic.kr/s/aHBqjAUCGU" target="_blank" class="galeria-card">
+    <span class="galeria-name">"Dioses de la Metapareidolia"</span>
+    <span class="galeria-arrow">→</span>
+  </a>
+
+  <a href="https://flic.kr/s/aHBqjAUCWk" target="_blank" class="galeria-card">
+    <span class="galeria-name">"Ángeles del Inconsciente"</span>
+    <span class="galeria-arrow">→</span>
+  </a>
+
+  <a href="https://flic.kr/s/aHBqjAUFWf" target="_blank" class="galeria-card">
+    <span class="galeria-name">"La Metáfora Errónea del Inconsciente"</span>
+    <span class="galeria-arrow">→</span>
+  </a>
+
+  <p class="galeria-note">Si deseas adquirir alguna de las obras, visita el portal de venta</p>
+</div>
+
+<!-- PORTAL DE OBRA -->
+<div class="portal-section">
+  <a href="https://metapareidolia-web.vercel.app" target="_blank" class="btn-portal">
+    ✦ Portal de Venta de Obra — metapareidolia-web.vercel.app
+  </a>
+</div>
+
+<!-- EQUIPO -->
+<div class="team-section">
+  <div class="team-item">
+    <p class="team-name">Juan Carlos Pérez Martínez</p>
+    <p class="team-role">Creador · Metodología Metapareidolia Pictórica</p>
+  </div>
+  <div class="team-item">
+    <p class="team-name">Adriana Ayala Gutiérrez</p>
+    <p class="team-role">Especialista en Semiosis y Coaching Clínico · Facilitadora</p>
+  </div>
+</div>
+
+<!-- CONFIDENCIALIDAD -->
+<div class="confidential-section">
+  <p><strong style="color: var(--gold); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;">Aviso de Privacidad y Confidencialidad</strong></p>
+  <p>El Método Celidiano es una herramienta de arteterapia lúdica y de introspección. La información proporcionada es tratada bajo estrictos protocolos de confidencialidad y ética profesional. Tus datos son utilizados exclusivamente para el análisis de esta sesión.</p>
+  <p><em>Esta sesión no sustituye tratamientos psicológicos o psiquiátricos clínicos.</em></p>
+</div>
+
+<footer>
+  © 2026 · Método Celidiano · Adriana Ayala Gutiérrez · Juan Carlos Pérez Martínez · Todos los derechos reservados
+</footer>
+
+<div class="gold-bar"></div>
 
 </body>
 </html>
