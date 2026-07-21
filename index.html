@@ -276,34 +276,38 @@
     text-transform: uppercase;
   }
 
-  /* NUEVO ESTILO PARA EL BOTÓN DE VIDEOCONFERENCIA (MEET) */
+  /* NUEVO BOTÓN DE VIDEOCONFERENCIA (ESTILO DORADO) */
   .btn-meet {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: linear-gradient(135deg, #1a73e8, #0d47a1);
-    color: #ffffff;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
     font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
     text-decoration: none;
     padding: 14px 32px;
     border-radius: 30px;
-    box-shadow: 0 4px 16px rgba(26, 115, 232, 0.3);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 16px rgba(197,160,89,0.15);
     transition: all 0.3s ease;
     margin-top: 8px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
   }
 
   .btn-meet:hover {
-    background: linear-gradient(135deg, #4285f4, #1a73e8);
+    background: rgba(197,160,89,0.15);
+    border-color: var(--gold-light);
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(26, 115, 232, 0.4);
+    box-shadow: 0 8px 24px rgba(197,160,89,0.3);
   }
 
   .meet-icon {
     font-size: 1.2rem;
+    color: var(--gold);
   }
 
   /* TEAM */
@@ -483,7 +487,7 @@
     </div>
   </div>
 
-  <!-- PASO 3 (Con el botón de Meet funcionando) -->
+  <!-- PASO 3 (Con el botón de estilo dorado) -->
   <div class="step-card">
     <div class="step-number">03</div>
     <span class="step-badge">Tercer Paso</span>
@@ -497,9 +501,9 @@
           ⏳ Espera la confirmación de Adriana por WhatsApp antes de entrar.
         </p>
         
-        <!-- NUEVO BOTÓN DE VIDEOCONFERENCIA -->
+        <!-- BOTÓN DE VIDEOCONFERENCIA 100% DORADO Y ELEGANTE -->
         <a href="https://meet.google.com/bxm-pgte-eyr" target="_blank" class="btn-meet">
-          <span class="meet-icon">📹</span> Iniciar Videoconferencia
+          <span class="meet-icon">✦</span> Iniciar Videoconferencia
         </a>
       </div>
 
