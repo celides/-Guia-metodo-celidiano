@@ -184,32 +184,62 @@
 
   /* GALERIAS DENTRO DEL PASO 2 */
   .galeria-links-inline {
-    margin-top: 16px;
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
   }
-  .galeria-link-inline {
-    background: rgba(197,160,89,0.05);
-    border: 1px solid var(--glass-border);
-    border-radius: 4px;
-    padding: 14px 18px;
+
+  .galeria-boton {
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-decoration: none;
-    color: var(--white);
-    transition: all 0.3s;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(197,160,89,0.3);
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   }
-  .galeria-link-inline:hover {
-    border-color: var(--gold);
-    background: rgba(197,160,89,0.1);
-    transform: translateX(4px);
-  }
-  .galeria-link-inline span { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-style: italic; }
-  .galeria-link-inline .arrow { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
 
-  /* CTA WHATSAPP (FINAL) */
+  .galeria-boton:hover {
+    background: rgba(197,160,89,0.12);
+    border-color: #c5a059;
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 8px 30px rgba(197,160,89,0.15);
+  }
+
+  .galeria-icono {
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .galeria-nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--white);
+    flex-grow: 1;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+
+  .galeria-flecha {
+    color: var(--gold);
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .galeria-boton:hover .galeria-flecha {
+    transform: translateX(6px);
+  }
+
+  /* CTA WHATSAPP */
   .cta-section { text-align: center; padding: 0 20px 72px; }
 
   .btn-whatsapp {
@@ -246,7 +276,7 @@
     text-transform: uppercase;
   }
 
-  /* TEAM (FINAL) */
+  /* TEAM */
   .team-section { max-width: 680px; margin: 0 auto 32px; padding: 0 20px; display: flex; flex-direction: column; gap: 12px; }
   .team-item { text-align: center; }
   .team-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--gold-light); margin-bottom: 3px; }
@@ -264,26 +294,56 @@
   }
   .confidential-section p:last-child { margin-bottom: 0; }
 
-  /* PORTAL OBRA (FINAL) */
-  .portal-section { max-width: 680px; margin: 0 auto 48px; padding: 0 20px; text-align: center; }
-
-  .btn-portal {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: transparent;
-    border: 1px solid var(--glass-border);
-    color: var(--platinum);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.72rem; font-weight: 400;
-    letter-spacing: 3px; text-transform: uppercase;
-    text-decoration: none;
-    padding: 14px 28px; border-radius: 3px;
-    transition: all 0.3s;
+  /* PASO 4: GALERÍA DE ARTE (TAG TRIUNFAR) - NUEVO */
+  .step-card-gallery {
+    background: rgba(197,160,89,0.03);
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    padding: 36px 28px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(197,160,89,0.05);
   }
 
-  .btn-portal:hover {
-    border-color: var(--gold);
+  .step-card-gallery .step-number {
+    color: rgba(197,160,89,0.20);
+  }
+
+  .step-card-gallery .step-badge {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .btn-gallery {
+    display: inline-flex;
+    align-items: center; gap: 14px;
+    background: transparent;
+    border: 2px solid var(--gold);
     color: var(--gold-light);
-    background: rgba(197,160,89,0.05);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; 
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 3px;
+    transition: all 0.4s ease;
+    margin-top: 16px;
+    letter-spacing: 1px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-gallery:hover {
+    background: var(--gold);
+    color: var(--black);
+    box-shadow: 0 8px 40px rgba(197,160,89,0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-gallery .icon {
+    font-size: 1.4rem;
   }
 
   footer {
@@ -294,6 +354,7 @@
 
   @media (max-width: 480px) {
     .step-card { padding: 28px 20px; }
+    .step-card-gallery { padding: 28px 20px; }
   }
 </style>
 </head>
@@ -321,7 +382,7 @@
   </p>
 </header>
 
-<!-- VIDEO DE INSTRUCCIONES (PRIMERO) -->
+<!-- VIDEO DE INSTRUCCIONES -->
 <div class="video-section">
   <div class="section-label">Video de Instrucciones</div>
   <div class="video-frame">
@@ -372,19 +433,21 @@
       </ul>
       <p>Cuando tengas tu lista completa, envíala al mismo chat de WhatsApp donde escribiste tu nombre y fecha de nacimiento.</p>
       
-      <!-- LINKS DE GALERIAS DENTRO DEL PASO 2 -->
       <div class="galeria-links-inline">
-        <a href="https://flic.kr/s/aHBqjAUCGU" target="_blank" class="galeria-link-inline">
-          <span>"Dioses de la Metapareidolia"</span>
-          <span class="arrow">→</span>
+        <a href="https://flic.kr/s/aHBqjAUCGU" target="_blank" class="galeria-boton">
+          <span class="galeria-icono">👁️</span>
+          <span class="galeria-nombre">"Dioses de la Metapareidolia"</span>
+          <span class="galeria-flecha">✦</span>
         </a>
-        <a href="https://flic.kr/s/aHBqjAUCWk" target="_blank" class="galeria-link-inline">
-          <span>"Ángeles del Inconsciente"</span>
-          <span class="arrow">→</span>
+        <a href="https://flic.kr/s/aHBqjAUCWk" target="_blank" class="galeria-boton">
+          <span class="galeria-icono">👁️</span>
+          <span class="galeria-nombre">"Ángeles del Inconsciente"</span>
+          <span class="galeria-flecha">✦</span>
         </a>
-        <a href="https://flic.kr/s/aHBqjAUFWf" target="_blank" class="galeria-link-inline">
-          <span>"La Metáfora Errónea del Inconsciente"</span>
-          <span class="arrow">→</span>
+        <a href="https://flic.kr/s/aHBqjAUFWf" target="_blank" class="galeria-boton">
+          <span class="galeria-icono">👁️</span>
+          <span class="galeria-nombre">"La Metáfora Errónea del Inconsciente"</span>
+          <span class="galeria-flecha">✦</span>
         </a>
       </div>
     </div>
@@ -409,7 +472,7 @@
 
 </div>
 
-<!-- CTA WHATSAPP (AHORA AL FINAL DE LOS PASOS) -->
+<!-- CTA WHATSAPP -->
 <div class="cta-section">
   <a
     href="https://wa.me/524494008788?text=Hola%20Adriana%2C%20estoy%20listo%20para%20iniciar%20mi%20sesi%C3%B3n%20del%20M%C3%A9todo%20Celidiano."
@@ -419,6 +482,23 @@
   </a>
   <br/>
   <p class="cta-note">Toca para abrir el chat y enviar tus datos</p>
+</div>
+
+<!-- PASO 4: GALERÍA DE ARTE (TAG TRIUNFAR) - NUEVO UMBRAL -->
+<div class="steps-section">
+  <div class="step-card-gallery">
+    <div class="step-number">04</div>
+    <span class="step-badge">Galería Privada</span>
+    <h2 class="step-title">Tag Triunfar Gallery</h2>
+    <div class="step-body" style="text-align: center;">
+      <p>Una vez que hayas vivido la experiencia Celidiana, te invitamos a cruzar el umbral de nuestra galería virtual.</p>
+      <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 8px;">Descubre y adquiere las obras originales que conectan con tu inconsciente.</p>
+      
+      <a href="https://metapareidolia-web.vercel.app" target="_blank" class="btn-gallery">
+        <span class="icon">🎨</span> Entrar a Tag Triunfar Gallery
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- EQUIPO -->
@@ -438,14 +518,6 @@
   <p><strong style="color: var(--gold); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;">Aviso de Privacidad y Confidencialidad</strong></p>
   <p>El Método Celidiano es una herramienta de arteterapia lúdica y de introspección. La información proporcionada es tratada bajo estrictos protocolos de confidencialidad y ética profesional. Tus datos son utilizados exclusivamente para el análisis de esta sesión.</p>
   <p><em>Esta sesión no sustituye tratamientos psicológicos o psiquiátricos clínicos.</em></p>
-</div>
-
-<!-- PORTAL DE OBRA Y COLECCIONES (CIERRE FINAL) -->
-<div class="portal-section">
-  <p style="font-size:0.7rem; color:var(--platinum); opacity:0.5; letter-spacing:3px; margin-bottom:16px; text-transform:uppercase;">Explora y adquiere las obras</p>
-  <a href="https://metapareidolia-web.vercel.app" target="_blank" class="btn-portal">
-    ✦ Portal de Venta de Obra — metapareidolia-web.vercel.app
-  </a>
 </div>
 
 <footer>
