@@ -276,6 +276,36 @@
     text-transform: uppercase;
   }
 
+  /* NUEVO ESTILO PARA EL BOTÓN DE VIDEOCONFERENCIA (MEET) */
+  .btn-meet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px rgba(26, 115, 232, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-meet:hover {
+    background: linear-gradient(135deg, #4285f4, #1a73e8);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(26, 115, 232, 0.4);
+  }
+
+  .meet-icon {
+    font-size: 1.2rem;
+  }
+
   /* TEAM */
   .team-section { max-width: 680px; margin: 0 auto 32px; padding: 0 20px; display: flex; flex-direction: column; gap: 12px; }
   .team-item { text-align: center; }
@@ -294,7 +324,7 @@
   }
   .confidential-section p:last-child { margin-bottom: 0; }
 
-  /* PASO 4: GALERÍA DE ARTE (TAG TRIUNFAR) - NUEVO */
+  /* PASO 4: GALERÍA DE ARTE (TAG TRIUNFAR) */
   .step-card-gallery {
     background: rgba(197,160,89,0.03);
     border: 2px solid var(--gold);
@@ -453,20 +483,27 @@
     </div>
   </div>
 
-  <!-- PASO 3 -->
+  <!-- PASO 3 (Con el botón de Meet funcionando) -->
   <div class="step-card">
     <div class="step-number">03</div>
     <span class="step-badge">Tercer Paso</span>
     <h2 class="step-title">Decodificación y Videoconferencia</h2>
     <div class="step-body">
       <p>Una vez recibida tu lista, Adriana procesará el análisis en un tiempo estimado de <strong>30 minutos</strong>.</p>
-      <p>Cuando el análisis esté listo, te notificaremos por WhatsApp para iniciar la videoconferencia. La sesión se realiza <strong>cara a cara, con cámara abierta</strong> — ser visto es parte de la experiencia de sanación.</p>
-      <div class="step-highlight">
-        Enlace permanente de sesión:<br/>
-        <strong>meet.google.com/bxm-pgte-eyr</strong>
-        <br/><span style="font-size:0.85rem; opacity:0.7;">*No ingreses a la reunión hasta recibir la confirmación de Adriana por WhatsApp.</span>
+      <p>Cuando el análisis esté listo, te notificaremos por WhatsApp. La sesión se realiza <strong>cara a cara, con cámara abierta</strong> — ser visto es parte de la experiencia de sanación.</p>
+      
+      <div class="step-highlight" style="text-align: center; border-left: none; border: 1px solid rgba(197,160,89,0.2); border-radius: 6px;">
+        <p style="margin-bottom: 12px; font-size: 0.85rem; opacity: 0.8;">
+          ⏳ Espera la confirmación de Adriana por WhatsApp antes de entrar.
+        </p>
+        
+        <!-- NUEVO BOTÓN DE VIDEOCONFERENCIA -->
+        <a href="https://meet.google.com/bxm-pgte-eyr" target="_blank" class="btn-meet">
+          <span class="meet-icon">📹</span> Iniciar Videoconferencia
+        </a>
       </div>
-      <p>Este es un espacio seguro, profesional y completamente confidencial. Tu presencia y apertura son todo lo que necesitas.</p>
+
+      <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.6;">Este es un espacio seguro, profesional y completamente confidencial.</p>
     </div>
   </div>
 
@@ -484,12 +521,12 @@
   <p class="cta-note">Toca para abrir el chat y enviar tus datos</p>
 </div>
 
-<!-- PASO 4: GALERÍA DE ARTE (TAG TRIUNFAR) - NUEVO UMBRAL -->
+<!-- PASO 4: GALERÍA DE ARTE (TAG TRIUNFAR) -->
 <div class="steps-section">
   <div class="step-card-gallery">
     <div class="step-number">04</div>
     <span class="step-badge">Galería Privada</span>
-    <h2 class="step-title">Tag Triumph Art Gallery</h2>
+    <h2 class="step-title">Tag Triunfar Gallery</h2>
     <div class="step-body" style="text-align: center;">
       <p>Una vez que hayas vivido la experiencia Celidiana, te invitamos a cruzar el umbral de nuestra galería virtual.</p>
       <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 8px;">Descubre y adquiere las obras originales que conectan con tu inconsciente.</p>
